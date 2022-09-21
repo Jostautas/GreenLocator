@@ -124,6 +124,10 @@ namespace GreenLocator.Data.Migrations
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 
+                    b.Property<string>("CityName")
+                       .HasColumnType("nvarchar(256)")
+                       .HasMaxLength(256);
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
