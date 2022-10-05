@@ -4,18 +4,31 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
 
+using GreenLocator.Models;
+
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Data.SqlClient;
+
 namespace GreenLocator.Pages;
 
 public class EnterInfoModel : PageModel
 {
+    [BindProperty]
+    public EnterInfoViewModel EnterInfoViewModel { get; set; }
+
     public string CityInput, StreetInput;
     public int HouseInput;
 
     public IActionResult OnPost()
-    {
-        CityInput = Request.Form["CityInput"];
-        StreetInput = Request.Form["StreetInput"];
-        HouseInput = int.Parse(Request.Form["HouseInput"]);
+    {   
+        if(ModelState.IsValid)
+        {
+            CityInput = Request.Form["CityInput"];
+            StreetInput = Request.Form["StreetInput"];
+            HouseInput = int.Parse(Request.Form["HouseInput"]);
+        }
+        
 
         try
         {
@@ -41,9 +54,9 @@ public class EnterInfoModel : PageModel
                 }
                 else
                 {
-                    current.City = CityInput;
-                    current.Street = StreetInput;
-                    current.House = HouseInput;
+                    /* current.City = CityInput;
+                     current.Street = StreetInput;
+                     current.House = HouseInput*/
 
                     context.SaveChanges();
 
