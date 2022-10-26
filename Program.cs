@@ -3,6 +3,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using GreenLocator.Hubs;
 using GreenLocator.Models;
+using GreenLocator.Services;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using GreenLocator.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +24,9 @@ builder.Services.AddSignalR();
 
 // Dependency injection:
 builder.Services.AddScoped<GreenLocatorDBContext>();
+
+builder.Services.AddTransient<IEmailSender, EmailSender>();
+builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
 
 var app = builder.Build();
 
