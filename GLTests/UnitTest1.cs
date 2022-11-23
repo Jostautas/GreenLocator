@@ -122,7 +122,7 @@ namespace GLTests
                 House = House,
             };
 
-            var enterInfoModel = new EnterInfoModel(null);
+            var enterInfoModel = new EnterInfoModel(null!);
 
             Assert.True(enterInfoModel.InputValidation(user.City, user.Street, (int)user.House));
         }
