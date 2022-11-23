@@ -64,7 +64,7 @@ public class MainModel : PageModel
         }
     }
 
-    public IActionResult OnPost()
+    public async Task<IActionResult> OnPost()
     {
         try
         {
@@ -81,20 +81,16 @@ public class MainModel : PageModel
             SetCurrentUser(ActionInput, ApplianceInput);
             _context.SaveChanges();
 
-            ParameterizedThreadStart notifThreadStart = new(NumOfMatchedPeople!);
-            Thread notifThread = new Thread(notifThreadStart);
 
             object args = new object[2] { _context, current };
 
-            notifThread.Start(args);
 
-            lock (current)
-            {
+            NumOfMatchedPeople(args);
+
                 current.ShareStatus = (int)currentUser.ShareStatus;
                 current.ThingToShare = (int)currentUser.ThingToShare;
-            }
-
-            notifThread.Join();
+            
+            await.
 
             return Page();
         }
@@ -176,7 +172,7 @@ public class MainModel : PageModel
         }
     }
 
-    public static void NumOfMatchedPeople(object args)
+    public void NumOfMatchedPeople(object args)
     {
             Array argArray = new Object[2];
             argArray = (Array)args;

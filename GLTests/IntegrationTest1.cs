@@ -21,7 +21,7 @@ namespace GLTests
             _factory = factory;
         }
 
-        [Theory]
+        
         [InlineData("/")]
         [InlineData("/Index")]
         [InlineData("/Privacy")]
