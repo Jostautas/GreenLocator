@@ -33,7 +33,6 @@ namespace GLTests
         public async Task Get_EndpointsReturnSuccessAndCorrectContentType(string url)
         {          
             var client = _factory.CreateClient();
-
             
             var response = await client.GetAsync(url);
            
