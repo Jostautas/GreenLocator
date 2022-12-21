@@ -1,0 +1,16 @@
+{
+  "Types": [
+    {
+      "TypeName": "GreenLocator.LogMiddleware, GreenLocator",
+      "Methods": [
+        {
+          "MethodSignature": "LogException(HttpContext context, Exception ex)",
+          "Interceptors": [ "Interceptor" ]
+        }
+      ],
+      "GenericArgumentTypes": []
+    }
+  ],
+  "GlobalInterceptors": [],
+  "key": ""
+}

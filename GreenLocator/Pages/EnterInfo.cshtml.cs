@@ -113,8 +113,8 @@ public class EnterInfoModel : PageModel
         string filePath = @"C:\Error.txt";
 
         using StreamWriter writer = new(filePath, true);
-        writer.WriteLine("-----------------------------------------------------------------------------");
-        writer.WriteLine("Date : " + DateTimeOffset.UtcNow.ToString());
+        //writer.WriteLine("-----------------------------------------------------------------------------");
+        //writer.WriteLine("Date : " + DateTimeOffset.UtcNow.ToString());
         writer.WriteLine();
 
         while (ex != null)

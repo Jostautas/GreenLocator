@@ -1,5 +1,7 @@
 using System.Runtime.CompilerServices;
 
+using CodeCop.Core;
+
 using GreenLocator.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -23,6 +25,8 @@ public class MainModel : PageModel
 
     public IActionResult OnGet()
     {
+        Cop.Intercept();
+        int x = 4 / 3;
         if (User.Identity == null)
         {
             return RedirectToPage("Error");

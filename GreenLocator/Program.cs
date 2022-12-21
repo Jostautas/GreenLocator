@@ -10,6 +10,7 @@ using Newtonsoft.Json.Serialization;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
+using CodeCop.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 
